@@ -1,0 +1,325 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Progress Place</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=Hind:wght@400;500;600&display=swap">
+<style>
+/* Layout: sticky nav, split hero with growth-bars motif, service cards, work-from-home band, founder, tabbed forms, contact footer */
+:root{
+  --bg:#f7f8fc; --surface:#ffffff; --fg:#14183a; --muted:#585d7e; --line:#dfe2f0;
+  --navy:#1a2060; --navy-fg:#ffffff; --accent:#f59a1b; --accent-fg:#1a1200; --teal:#0f9d8a; --soft:#eef0fb;
+  --display:'Sora',system-ui,sans-serif; --body:'Hind',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0d1030; --surface:#161a47; --fg:#eef0ff; --muted:#a9aed4; --line:#2a2f66;
+  --navy:#0a0d2b; --navy-fg:#ffffff; --accent:#ffb23e; --accent-fg:#1a1200; --teal:#2fd1b9; --soft:#1c2152; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0d1030; --surface:#161a47; --fg:#eef0ff; --muted:#a9aed4; --line:#2a2f66;
+  --navy:#0a0d2b; --navy-fg:#ffffff; --accent:#ffb23e; --accent-fg:#1a1200; --teal:#2fd1b9; --soft:#1c2152; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px}
+section{padding-block:64px}
+.eyebrow{font-family:var(--display);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700}
+h2{font-size:clamp(26px,4vw,38px);font-weight:800;margin-top:8px}
+.lead{color:var(--muted);max-width:60ch;margin-top:12px}
+.btn{display:inline-block;font-family:var(--display);font-weight:700;font-size:15px;padding:13px 22px;border-radius:10px;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn-primary{background:var(--accent);color:var(--accent-fg)}
+.btn-ghost{border-color:currentColor;color:inherit}
+.btn:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+/* nav */
+header{background:var(--navy);color:var(--navy-fg);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:800;font-size:19px;text-decoration:none}
+.mark{width:34px;height:34px;display:block}
+.nav-links{display:flex;gap:18px;align-items:center;font-size:15px;flex-wrap:wrap}
+.nav-links a{text-decoration:none;opacity:.9}
+.nav-links .btn{padding:8px 16px;font-size:14px}
+
+/* hero */
+.hero{background:var(--navy);color:var(--navy-fg);padding-block:56px 72px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(32px,5.4vw,56px);font-weight:800}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero p.lead{color:#c9cdf0}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .btn-ghost{color:#fff}
+.chart{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:24px;min-width:0}
+.chart svg{width:100%;height:auto;display:block}
+.chart small{display:block;margin-top:10px;color:#c9cdf0;font-size:14px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.pills span{background:rgba(255,255,255,.1);border-radius:99px;padding:5px 14px;font-size:14px}
+
+/* services */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:32px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;min-width:0}
+.card .ic{width:44px;height:44px;border-radius:12px;background:var(--soft);display:grid;place-items:center;margin-bottom:14px}
+.card .ic svg{width:24px;height:24px;stroke:var(--teal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.card h3{font-size:18px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:16px}
+
+/* wfh */
+.wfh{background:var(--soft)}
+.wfh-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.checks{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+.checks li{display:flex;gap:12px;align-items:flex-start}
+.checks li::before{content:"";flex:none;width:22px;height:22px;margin-top:3px;border-radius:50%;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/14px no-repeat}
+.steps{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;display:grid;gap:20px;min-width:0}
+.steps div{display:grid;grid-template-columns:40px 1fr;gap:14px}
+.steps b{font-family:var(--display);width:40px;height:40px;border-radius:50%;background:var(--navy);color:var(--navy-fg);display:grid;place-items:center}
+.steps h3{font-size:17px}
+.steps p{color:var(--muted);font-size:15.5px}
+
+/* founder */
+.founder{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;margin-top:28px}
+.avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:34px}
+.founder h3{font-size:22px}
+.founder .role{color:var(--teal);font-weight:600;font-size:15px}
+.founder p{color:var(--muted);margin-top:8px;max-width:60ch}
+
+/* forms */
+.join{background:var(--navy);color:var(--navy-fg)}
+.join .lead{color:#c9cdf0}
+.formbox{background:var(--surface);color:var(--fg);border-radius:18px;padding:26px;margin-top:28px;max-width:640px}
+.tabs{display:flex;gap:6px;background:var(--soft);padding:5px;border-radius:12px;margin-bottom:22px}
+.tabs button{flex:1;font:700 15px var(--display);border:0;background:transparent;color:var(--muted);padding:11px 8px;border-radius:9px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--navy);color:var(--navy-fg)}
+form{display:grid;gap:16px}
+label{display:grid;gap:6px;font-weight:600;font-size:15px}
+input,textarea{font:inherit;font-weight:400;background:var(--bg);color:var(--fg);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;width:100%;min-width:0}
+textarea{min-height:84px;resize:vertical}
+.err{color:#d6336c;font-size:14px;font-weight:500;min-height:0}
+.note{font-size:14px;color:var(--muted)}
+.done{display:grid;gap:14px}
+.done h3{font-size:20px}
+.done .row{display:flex;gap:10px;flex-wrap:wrap}
+.btn-wa{background:#1fa855;color:#fff}
+.btn-line{border-color:var(--line);color:var(--fg);background:transparent}
+
+/* footer */
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:28px}
+.contact .card h3{font-size:16px;color:var(--teal);font-family:var(--display)}
+.contact .card p{color:var(--fg);font-size:18px;font-weight:600;overflow-wrap:anywhere}
+footer{background:var(--navy);color:#c9cdf0;text-align:center;padding-block:22px;font-size:14px}
+
+@media (max-width:760px){
+  .hero-grid,.wfh-grid{grid-template-columns:1fr}
+  .founder{grid-template-columns:1fr;text-align:left}
+  section{padding-block:48px}
+  .nav-links a:not(.btn){display:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  .bar{transform-origin:bottom;animation:grow .9s ease-out both}
+  @keyframes grow{from{transform:scaleY(.05)}}
+}
+</style>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Progress Place home">
+      <svg class="mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#f59a1b"/><path d="M9 29l8-9 5 5 9-12" fill="none" stroke="#1a1200" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 13h6v6" fill="none" stroke="#1a1200" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Progress Place
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#wfh">Work From Home</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+      <a class="btn btn-primary" href="#join" data-tab="signup">Sign Up</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow" style="color:var(--accent)">Digital Marketing Platform · Agra</div>
+      <h1 style="margin-top:12px">Apne business ko online <em>aage badhaiye</em>, ghar baithe.</h1>
+      <p class="lead">Progress Place ek digital marketing platform hai jo businesses ko online pahchaan dilata hai aur logon ko ghar se kaam karne ka mauka deta hai.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#join" data-tab="signup">Sign Up karein</a>
+        <a class="btn btn-ghost" href="#join" data-tab="apply">Work From Home ke liye Apply</a>
+      </div>
+      <div class="pills"><span>Social Media</span><span>Online Promotion</span><span>Lead Generation</span><span>Work From Home</span></div>
+    </div>
+    <div class="chart" aria-hidden="true">
+      <svg viewBox="0 0 320 200">
+        <line x1="10" y1="170" x2="310" y2="170" stroke="#ffffff" stroke-opacity=".3"/>
+        <rect class="bar" x="24" y="120" width="38" height="50" rx="6" fill="#2fd1b9" style="animation-delay:.05s"/>
+        <rect class="bar" x="82" y="96" width="38" height="74" rx="6" fill="#2fd1b9" style="animation-delay:.15s"/>
+        <rect class="bar" x="140" y="70" width="38" height="100" rx="6" fill="#2fd1b9" style="animation-delay:.25s"/>
+        <rect class="bar" x="198" y="44" width="38" height="126" rx="6" fill="#2fd1b9" style="animation-delay:.35s"/>
+        <rect class="bar" x="256" y="16" width="38" height="154" rx="6" fill="#f59a1b" style="animation-delay:.45s"/>
+      </svg>
+      <small>Online pahunch badhaiye, kadam dar kadam.</small>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="eyebrow">Hamari Services</div>
+    <h2>Online grow karne ke liye sab kuch ek jagah</h2>
+    <p class="lead">Chhote dukaan se lekar badi company tak, har business ko digital par sahi dishaa dikhana hamara kaam hai.</p>
+    <div class="cards">
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></div><h3>Social Media Marketing</h3><p>Facebook, Instagram aur WhatsApp par aapke business ki regular promotion.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></div><h3>Online Pahchaan</h3><p>Google par dikhein. Business profile aur listing se naye customers tak pahunchein.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h3>Lead Generation</h3><p>Interested customers ke calls aur enquiries seedhe aapke paas.</p></div>
+      <div class="card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></div><h3>Brand Promotion</h3><p>Poster, video aur content jo aapke brand ko yaad rakhne layak banate hain.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="wfh" class="wfh">
+  <div class="wrap wfh-grid">
+    <div>
+      <div class="eyebrow">Work From Home</div>
+      <h2>Ghar se kaam karein, apni suvidha se</h2>
+      <p class="lead">Progress Place logon ko work from home ka mauka deta hai. Aapko bas ek smartphone aur seekhne ka man chahiye.</p>
+      <ul class="checks">
+        <li>Ghar baithe digital marketing ka kaam</li>
+        <li>Kaam seekhne ke liye guidance aur support</li>
+        <li>Apne samay ke hisaab se kaam karne ki flexibility</li>
+        <li>Mahila, vidyarthi aur ghar se kaam dhoondhne wale sabke liye</li>
+      </ul>
+      <p class="note" style="margin-top:18px">Kaam ki details aur shartein apply karne ke baad team aapko seedhe batayegi.</p>
+    </div>
+    <div class="steps">
+      <div><b>1</b><span><h3>Form bharein</h3><p>Apna naam, number aur email bhejein.</p></span></div>
+      <div><b>2</b><span><h3>Team se baat</h3><p>Hamari team aapko call ya WhatsApp karegi.</p></span></div>
+      <div><b>3</b><span><h3>Kaam shuru</h3><p>Details samajhkar apne ghar se kaam shuru karein.</p></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="founder">
+  <div class="wrap">
+    <div class="eyebrow">Founder</div>
+    <h2>Hamare piche ki soch</h2>
+    <div class="founder">
+      <div class="avatar" aria-hidden="true">LS</div>
+      <div>
+        <h3>Mr. Lakshyaraj Singh</h3>
+        <div class="role">Founder, Progress Place</div>
+        <p>Agra se shuru hua Progress Place ka maksad hai ki har business online dikhe aur har insaan ko ghar baithe aage badhne ka mauka mile.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="join" class="join">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--accent)">Judiye Progress Place se</div>
+    <h2>Sign Up ya Apply karein</h2>
+    <p class="lead">Apni jaankari bharein. Aapki details WhatsApp ke zariye seedhe Progress Place team ko bheji jayengi.</p>
+
+    <div class="formbox">
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" id="tab-signup" aria-selected="true" aria-controls="panel">Sign Up</button>
+        <button type="button" role="tab" id="tab-apply" aria-selected="false" aria-controls="panel">Work From Home Apply</button>
+      </div>
+      <div id="panel" role="tabpanel">
+        <form id="f" novalidate>
+          <label for="name">Poora Naam
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Jaise: Rahul Sharma" required>
+            <span class="err" id="e-name"></span></label>
+          <label for="phone">Mobile Number
+            <input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="10 digit mobile number" maxlength="14" required>
+            <span class="err" id="e-phone"></span></label>
+          <label for="email">Email
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="aap@example.com" required>
+            <span class="err" id="e-email"></span></label>
+          <label for="city" id="l-city" hidden>Shehar
+            <input id="city" name="city" type="text" placeholder="Jaise: Agra"></label>
+          <label for="msg" id="l-msg" hidden>Aapke baare mein (optional)
+            <textarea id="msg" name="msg" placeholder="Padhai, anubhav ya kuch bhi jo batana chahein"></textarea></label>
+          <button class="btn btn-primary" type="submit" id="submit">Sign Up karein</button>
+          <p class="note">Submit karne par WhatsApp khulega jisme aapki details pehle se likhi hongi. Aapko bas Send dabana hai.</p>
+        </form>
+        <div class="done" id="done" hidden>
+          <h3>Details taiyaar hain</h3>
+          <p>Neeche button se WhatsApp par bhejein taaki team tak pahunch jaye. Bhejne tak aapka form poora nahi maana jayega.</p>
+          <div class="row">
+            <a class="btn btn-wa" id="wa" href="#" target="_blank" rel="noopener">WhatsApp par bhejein</a>
+            <button class="btn btn-line" type="button" id="copy">Message copy karein</button>
+            <button class="btn btn-line" type="button" id="back">Wapas jayein</button>
+          </div>
+          <p class="note" id="copied" hidden>Copy ho gaya. Ise 9340424886 par bhej dein.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Sampark</div>
+    <h2>Hum se baat karein</h2>
+    <div class="contact">
+      <div class="card"><h3>Phone / WhatsApp</h3><p>9340424886</p></div>
+      <div class="card"><h3>Pata</h3><p>M.S. Road, Agra</p></div>
+      <div class="card"><h3>Founder</h3><p>Mr. Lakshyaraj Singh</p></div>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://wa.me/919340424886" target="_blank" rel="noopener">WhatsApp par chat karein</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">© Progress Place · M.S. Road, Agra · 9340424886</div></footer>
+
+<script>
+(function(){
+  var NUM='919340424886', mode='signup';
+  var $=function(i){return document.getElementById(i)};
+  var f=$('f'), done=$('done'), msgText='';
+  function setMode(m){
+    mode=m;
+    $('tab-signup').setAttribute('aria-selected',m==='signup');
+    $('tab-apply').setAttribute('aria-selected',m==='apply');
+    $('l-city').hidden=$('l-msg').hidden=(m!=='apply');
+    $('submit').textContent=m==='apply'?'Apply karein':'Sign Up karein';
+    f.hidden=false; done.hidden=true;
+  }
+  $('tab-signup').onclick=function(){setMode('signup')};
+  $('tab-apply').onclick=function(){setMode('apply')};
+  Array.prototype.forEach.call(document.querySelectorAll('[data-tab]'),function(a){
+    a.addEventListener('click',function(){setMode(a.getAttribute('data-tab'))});
+  });
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=$('name').value.trim(), phone=$('phone').value.replace(/[\s\-+]/g,''), email=$('email').value.trim(), ok=true;
+    if(phone.indexOf('91')===0&&phone.length===12)phone=phone.slice(2);
+    $('e-name').textContent=name.length<2?(ok=false,'Apna naam likhein.'):'';
+    $('e-phone').textContent=!/^[6-9]\d{9}$/.test(phone)?(ok=false,'10 digit ka sahi mobile number likhein.'):'';
+    $('e-email').textContent=!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)?(ok=false,'Sahi email likhein.'):'';
+    if(!ok)return;
+    var lines=[mode==='apply'?'Progress Place - Work From Home Application':'Progress Place - Sign Up',
+      'Naam: '+name,'Mobile: '+phone,'Email: '+email];
+    if(mode==='apply'){
+      if($('city').value.trim())lines.push('Shehar: '+$('city').value.trim());
+      if($('msg').value.trim())lines.push('Details: '+$('msg').value.trim());
+    }
+    msgText=lines.join('\n');
+    $('wa').href='https://wa.me/'+NUM+'?text='+encodeURIComponent(msgText);
+    f.hidden=true; done.hidden=false; $('copied').hidden=true;
+  });
+  $('back').onclick=function(){f.hidden=false;done.hidden=true};
+  $('copy').onclick=function(){
+    function shown(){$('copied').hidden=false}
+    try{navigator.clipboard.writeText(msgText).then(shown,function(){fallback()})}catch(x){fallback()}
+    function fallback(){
+      var t=document.createElement('textarea');t.value=msgText;document.body.appendChild(t);t.select();
+      try{document.execCommand('copy');shown()}catch(y){}
+      document.body.removeChild(t);
+    }
+  };
+})();
+</script>
+
+</body></html>
